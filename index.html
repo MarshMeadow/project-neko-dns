@@ -16,17 +16,8 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            text-align: center;
+            text-align: left;
             overflow-x: hidden;
-        }
-        h1 {
-            font-size: 2em;
-            margin-top: 0;
-        }
-        h2 {
-            font-size: 1.5em;
-            margin-top: 15px;
-            margin-bottom: 10px;
         }
         .container {
             max-width: 800px;
@@ -36,28 +27,44 @@
             box-shadow: 0 0 15px rgba(0,0,0,0.5);
             position: relative;
         }
+        h1 {
+            font-size: 2em;
+            margin-top: 0;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
         .filter-list {
             margin-top: 20px;
-            text-align: left;
         }
         .filter-list ul {
             list-style-type: none;
             padding: 0;
+            display: none;
+        }
+        .filter-list ul.show {
+            display: block;
         }
         .filter-list li {
             margin: 5px 0;
             padding: 10px;
             border-radius: 4px;
             font-size: 14px;
-            color: #e0e0e0;
         }
         .spotify {
             background: linear-gradient(135deg, #1DB954, #191414);
             border: 1px solid #1DB954;
+            color: #e0e0e0;
         }
         .pinterest {
             background: linear-gradient(135deg, #E60023, #F4C3C4);
             border: 1px solid #E60023;
+            color: #e0e0e0;
         }
         .beta-notice {
             background-color: #ff6f61;
@@ -141,8 +148,8 @@
         </div>
         <p>This DNS server blocks ads for Spotify and Pinterest, as well as other common ad domains.</p>
         <div class="filter-list">
-            <h2>Spotify Ad Domains</h2>
-            <ul class="spotify">
+            <h2 onclick="toggleList('spotify-list')">Spotify Ad Domains</h2>
+            <ul id="spotify-list" class="spotify">
                 <li>ads.spotify.com</li>
                 <li>ads-creative.spotify.com</li>
                 <li>ads.api.spotify.com</li>
@@ -161,8 +168,8 @@
                 <li>securepubads.g.doubleclick.net</li>
                 <li>partner.googleadservices.com</li>
             </ul>
-            <h2>Pinterest Ad Domains</h2>
-            <ul class="pinterest">
+            <h2 onclick="toggleList('pinterest-list')">Pinterest Ad Domains</h2>
+            <ul id="pinterest-list" class="pinterest">
                 <li>ads.pinterest.com</li>
                 <li>ads.pinterest.co.uk</li>
                 <li>ads.pinterest.fr</li>
@@ -212,6 +219,12 @@
                 top: document.body.scrollHeight,
                 behavior: 'smooth'
             });
+        }
+
+        // Function to toggle visibility of lists
+        function toggleList(listId) {
+            const list = document.getElementById(listId);
+            list.classList.toggle('show');
         }
     </script>
 </body>
