@@ -8,56 +8,95 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 10px;
+            padding: 0;
             background-color: #121212;
             color: #e0e0e0;
             font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow-x: hidden;
         }
         h1 {
-            font-size: 1.5em;
+            font-size: 2em;
             margin-top: 0;
         }
         h2 {
-            font-size: 1.2em;
-            margin-top: 10px;
-            margin-bottom: 5px;
+            font-size: 1.5em;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        .container {
+            max-width: 800px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            position: relative;
         }
         .filter-list {
-            margin-top: 10px;
+            margin-top: 20px;
+            text-align: left;
         }
         .filter-list ul {
             list-style-type: none;
             padding: 0;
         }
         .filter-list li {
-            background: #1e1e1e;
-            margin: 3px 0;
-            padding: 8px;
-            border: 1px solid #333;
+            margin: 5px 0;
+            padding: 10px;
             border-radius: 4px;
-            font-size: 13px;
+            font-size: 14px;
+            color: #e0e0e0;
+        }
+        .spotify {
+            background: linear-gradient(135deg, #1DB954, #191414);
+            border: 1px solid #1DB954;
+        }
+        .pinterest {
+            background: linear-gradient(135deg, #E60023, #F4C3C4);
+            border: 1px solid #E60023;
         }
         .beta-notice {
             background-color: #ff6f61;
             color: #ffffff;
-            padding: 5px;
+            padding: 10px;
             border-radius: 4px;
-            margin-bottom: 15px;
-            font-size: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
         }
         .add-button {
             display: inline-block;
-            padding: 8px 15px;
-            margin-top: 15px;
+            padding: 10px 20px;
+            margin-top: 20px;
             background-color: #1e1e1e;
             color: #ffffff;
             text-decoration: none;
             border: 1px solid #333;
             border-radius: 4px;
-            font-size: 13px;
+            font-size: 14px;
             text-align: center;
         }
         .add-button:hover {
+            background-color: #333;
+        }
+        .scroll-button {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #1e1e1e;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .scroll-button:hover {
             background-color: #333;
         }
         .popup {
@@ -69,9 +108,11 @@
             background-color: #333;
             color: #fff;
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
             z-index: 1000;
+            width: 90%;
+            max-width: 400px;
         }
         .popup button {
             background-color: #ff6f61;
@@ -92,63 +133,65 @@
         <p><strong>Notice:</strong> This DNS ad blocker is for personal use only. We would appreciate it if you do not share this tool publicly.</p>
         <button onclick="closePopup()">OK</button>
     </div>
-    <h1>Advanced DNS Ad Blocker</h1>
-    <div class="beta-notice">
-        <strong>Beta Mode:</strong> This is an experimental feature. Please report any issues you encounter.
+    <div class="scroll-button" onclick="scrollToBottom()">Get Full List</div>
+    <div class="container">
+        <h1>Advanced DNS Ad Blocker</h1>
+        <div class="beta-notice">
+            <strong>Beta Mode:</strong> This is an experimental feature. Please report any issues you encounter.
+        </div>
+        <p>This DNS server blocks ads for Spotify and Pinterest, as well as other common ad domains.</p>
+        <div class="filter-list">
+            <h2>Spotify Ad Domains</h2>
+            <ul class="spotify">
+                <li>ads.spotify.com</li>
+                <li>ads-creative.spotify.com</li>
+                <li>ads.api.spotify.com</li>
+                <li>ads.audio.spotify.com</li>
+                <li>ad.doubleclick.net</li>
+                <li>adclick.g.doubleclick.net</li>
+                <li>spoti.fi</li>
+                <li>spoti.com</li>
+                <li>ads.spotifycdn.com</li>
+                <li>ads-creative.spotifycdn.com</li>
+                <li>s0.2mdn.net</li>
+                <li>adserving.google.com</li>
+                <li>pagead2.googlesyndication.com</li>
+                <li>googleads.g.doubleclick.net</li>
+                <li>pubads.g.doubleclick.net</li>
+                <li>securepubads.g.doubleclick.net</li>
+                <li>partner.googleadservices.com</li>
+            </ul>
+            <h2>Pinterest Ad Domains</h2>
+            <ul class="pinterest">
+                <li>ads.pinterest.com</li>
+                <li>ads.pinterest.co.uk</li>
+                <li>ads.pinterest.fr</li>
+                <li>ads.pinterest.de</li>
+                <li>ads.pinterest.ca</li>
+                <li>ads.pinterest.jp</li>
+                <li>ads.pinterest.it</li>
+                <li>ads.pinterest.com.au</li>
+                <li>ads.pinterest.nl</li>
+                <li>ads.pinterest.se</li>
+                <li>ads.pinterest.pl</li>
+                <li>pinterest.com</li>
+                <li>pinterest.jp</li>
+                <li>pinterest.co.uk</li>
+                <li>pinterest.fr</li>
+                <li>pinterest.de</li>
+                <li>pinterest.ca</li>
+                <li>pinterest.it</li>
+                <li>pinterest.com.au</li>
+                <li>pinterest.nl</li>
+                <li>pinterest.se</li>
+                <li>pinterest.pl</li>
+                <li>googleads.g.doubleclick.net</li>
+                <li>pagead2.googlesyndication.com</li>
+                <li>securepubads.g.doubleclick.net</li>
+            </ul>
+        </div>
+        <a href="https://neko-dns.netlify.app/list" class="add-button">View Full List</a>
     </div>
-    <p>This DNS server blocks ads for Spotify and Pinterest, as well as other common ad domains.</p>
-    <div class="filter-list">
-        <h2>Spotify Ad Domains</h2>
-        <ul>
-            <li>ads.spotify.com</li>
-            <li>ads-creative.spotify.com</li>
-            <li>ads.api.spotify.com</li>
-            <li>ads.audio.spotify.com</li>
-            <li>ad.doubleclick.net</li>
-            <li>adclick.g.doubleclick.net</li>
-            <li>spoti.fi</li>
-            <li>spoti.com</li>
-            <li>ads.spotifycdn.com</li>
-            <li>ads-creative.spotifycdn.com</li>
-            <li>s0.2mdn.net</li>
-            <li>adserving.google.com</li>
-            <li>pagead2.googlesyndication.com</li>
-            <li>googleads.g.doubleclick.net</li>
-            <li>pubads.g.doubleclick.net</li>
-            <li>securepubads.g.doubleclick.net</li>
-            <li>partner.googleadservices.com</li>
-        </ul>
-        <h2>Pinterest Ad Domains</h2>
-        <ul>
-            <li>ads.pinterest.com</li>
-            <li>ads.pinterest.co.uk</li>
-            <li>ads.pinterest.fr</li>
-            <li>ads.pinterest.de</li>
-            <li>ads.pinterest.ca</li>
-            <li>ads.pinterest.jp</li>
-            <li>ads.pinterest.it</li>
-            <li>ads.pinterest.com.au</li>
-            <li>ads.pinterest.nl</li>
-            <li>ads.pinterest.se</li>
-            <li>ads.pinterest.pl</li>
-            <li>pinterest.com</li>
-            <li>pinterest.jp</li>
-            <li>pinterest.co.uk</li>
-            <li>pinterest.fr</li>
-            <li>pinterest.de</li>
-            <li>pinterest.ca</li>
-            <li>pinterest.it</li>
-            <li>pinterest.com.au</li>
-            <li>pinterest.nl</li>
-            <li>pinterest.se</li>
-            <li>pinterest.pl</li>
-            <li>googleads.g.doubleclick.net</li>
-            <li>pagead2.googlesyndication.com</li>
-            <li>securepubads.g.doubleclick.net</li>
-        </ul>
-    </div>
-    <a href="https://neko-dns.netlify.app/list" class="add-button">View Full List</a>
-    
     <script>
         // Function to close the popup
         function closePopup() {
@@ -161,6 +204,14 @@
             if (!localStorage.getItem('popupDisplayed')) {
                 document.getElementById('popup').style.display = 'block';
             }
+        }
+
+        // Function to scroll to the bottom of the page
+        function scrollToBottom() {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
         }
     </script>
 </body>
