@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DNS Filtering Site</title>
+    <title>Advanced DNS Ad Blocker</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,16 +28,32 @@
             border: 1px solid #ddd;
             border-radius: 4px;
         }
+        .filter-list h2 {
+            margin-top: 0;
+        }
     </style>
 </head>
 <body>
-    <h1>DNS Filter List</h1>
-    <p>Below is a list of domains being blocked by this DNS server:</p>
+    <h1>Advanced DNS Ad Blocker</h1>
+    <p>This DNS server blocks ads for Spotify and Pinterest, as well as other common ad domains.</p>
     <div class="filter-list">
+        <h2>Spotify Ad Domains</h2>
         <ul>
             <li>ads.spotify.com</li>
+            <li>ads-creative.spotify.com</li>
+            <li>ads.api.spotify.com</li>
+            <li>ads.audio.spotify.com</li>
+            <li>ad.doubleclick.net</li>
+            <li>adclick.g.doubleclick.net</li>
+        </ul>
+        <h2>Pinterest Ad Domains</h2>
+        <ul>
             <li>ads.pinterest.com</li>
-            <!-- Add more domains as needed -->
+            <li>ads.pinterest.co.uk</li>
+            <li>ads.pinterest.fr</li>
+            <li>ad.doubleclick.net</li>
+            <li>adclick.g.doubleclick.net</li>
+            <li>pinterest.com</li>
         </ul>
     </div>
 </body>
